@@ -1,0 +1,23 @@
+{
+  "name": "sequelize-ts",
+  "version": "1.0.0",
+  "description": "pch18",
+  "keywords": [],
+  "main": "build/app.js",
+  "scripts": {
+    "test": "ts-node test/app.ts",
+    "start": "node build/app.js",
+    "prepublish": "tsc",
+    "postpublish": "read -p '请输入git提交信息: ' K && git add . && git commit -m \"${K}\" && git push origin master"
+  },
+  "author": "pch18 <pch18@qq.com> (https://pch18.cn/)",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
