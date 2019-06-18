@@ -23,5 +23,14 @@
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pch18/sequelize-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pch18/sequelize-ts/issues"
+  },
+  "homepage": "https://github.com/pch18/sequelize-ts#readme"
 }
