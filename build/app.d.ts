@@ -1,7 +1,5 @@
-#!/usr/bin/env node
-export declare class main {
-    PackageJson: any;
-    constructor();
-    run(): void;
-}
+import SequelizeTs from './lib/init';
+export default SequelizeTs;
+export * from './lib/model';
+export * from './lib/model_decorator';
 //# sourceMappingURL=app.d.ts.map

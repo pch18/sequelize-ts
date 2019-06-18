@@ -1,13 +1,13 @@
-#!/usr/bin/env node
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class main {
-    constructor() {
-        this.PackageJson = require('../package.json');
-    }
-    run() {
-        console.log('\x1B[35m%s\x1B[39m\x1B[32m %s\x1B[39m', 'Hello World by:', this.PackageJson.name);
-    }
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-exports.main = main;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const init_1 = __importDefault(require("./lib/init"));
+exports.default = init_1.default;
+__export(require("./lib/model"));
+__export(require("./lib/model_decorator"));
 //# sourceMappingURL=app.js.map
