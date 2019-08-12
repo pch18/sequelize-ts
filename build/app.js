@@ -9,5 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const init_1 = __importDefault(require("./lib/init"));
 exports.default = init_1.default;
 __export(require("./lib/model"));
-__export(require("./lib/model_decorator"));
+__export(require("./lib/decorator"));
+__export(require("./lib/interface"));
+__export(require("./lib/tools"));
 //# sourceMappingURL=app.js.map
