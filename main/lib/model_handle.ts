@@ -86,6 +86,10 @@ export class Model_handle<T extends Model_handle<T>> extends Model_start<T> {
         options?: FindMyOptions<T>
     ): Promise<Model_result<T>[]>
     static async findAll(where: any, options: any) {
+        if (options.page) {
+            options.limit = options.limit || 20
+            options.offset = (options.page - 1) * options.limit
+        }
         const result = await (<any>this.originModel).findAll(Object.assign({}, options, { where, raw: true }))
         return result.map((r: any) => new this(r))
     }

@@ -22,5 +22,7 @@ export type WhereMyOptionds<T extends Model<T>> = {
     [x in keyof Model_origin<T>]?: WhereOperators | T[x]
 } & { [Op.or]?: WhereMyOptionds<T> | WhereMyOptionds<T>[] } & { [Op.and]?: WhereMyOptionds<T> | WhereMyOptionds<T>[] }
 
-export type FindMyOptions<T extends Model<T>> =
-    Pick<FindOptions, 'limit' | 'offset' | 'logging'> & { order?: [keyof T, 'desc' | 'asc'][] }
+export type FindMyOptions<T extends Model<T>> = Pick<FindOptions, 'limit' | 'offset' | 'logging'> & {
+    order?: [keyof T, 'desc' | 'asc'][]
+    page?: number
+}
