@@ -78,7 +78,7 @@ export class Model_handle<T extends Model_handle<T>> extends Model_start<T> {
     static findAll<T, K extends keyof Model_origin<T>>(
         this: (new () => T),
         where: WhereMyOptionds<T>,
-        options: FindMyOptions<T> & { attributes: K[] }
+        options: FindMyOptions<T> & { attributes: K[], group?: K }
     ): Promise<Model_result<T, K>[]>
     static findAll<T>(
         this: (new () => T),
