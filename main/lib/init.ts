@@ -9,7 +9,7 @@ export default class SequelizeTs extends Sequelize {
     static defaultConfig: Options = {
         port: 3306,
         dialect: 'mysql',
-        timezone: (new Date().getTimezoneOffset() / -60 + ':00').replace(/(^\d)/, '+$1'),
+        timezone: (new Date().getTimezoneOffset() / -60 + ':00').replace(/^(-?)(\d\:)/, '$10$2').replace(/(^\d)/, '+$1'),
         logging: false,
         pool: {
             max: 10,
