@@ -1,7 +1,11 @@
 export default class myDate extends Date {
 
     constructor(date: any) {
-        super(myDate.toMyDateString(new Date(date)))
+        if (date) {
+            super(myDate.toMyDateString(new Date(date)))
+        } else {
+            super(myDate.toMyDateString(new Date()))
+        }
     }
 
     toString(): string {
@@ -20,6 +24,6 @@ export default class myDate extends Date {
         }
         return `${p.year}-${p.month}-${p.date}`
     }
-    
+
 }
 

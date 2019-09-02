@@ -2,7 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class myDate extends Date {
     constructor(date) {
-        super(myDate.toMyDateString(new Date(date)));
+        if (date) {
+            super(myDate.toMyDateString(new Date(date)));
+        }
+        else {
+            super(myDate.toMyDateString(new Date()));
+        }
     }
     toString() {
         return myDate.toMyDateString(this);
