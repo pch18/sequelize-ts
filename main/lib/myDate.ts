@@ -1,6 +1,6 @@
 export default class myDate extends Date {
 
-    constructor(date: any) {
+    constructor(date?: any) {
         if (date) {
             super(myDate.toMyDateString(new Date(date)))
         } else {
