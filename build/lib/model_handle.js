@@ -45,10 +45,6 @@ class Model_handle extends model_start_1.Model_start {
     }
     static findAll(where, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (options && options.page) {
-                options.limit = options.limit || 20;
-                options.offset = (options.page - 1) * options.limit;
-            }
             const result = yield this.originModel.findAll(Object.assign({}, options, { where, raw: true }));
             return result.map((r) => new this(r));
         });

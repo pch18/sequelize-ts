@@ -23,6 +23,5 @@ export declare type WhereMyOptionds<T extends Model<T>> = {
 };
 export declare type FindMyOptions<T extends Model<T>> = Pick<FindOptions, 'limit' | 'offset' | 'logging'> & {
     order?: [keyof T, 'desc' | 'asc'][];
-    page?: number;
 };
 //# sourceMappingURL=interface.d.ts.map

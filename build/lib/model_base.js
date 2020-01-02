@@ -35,6 +35,26 @@ class Model_base extends model_handle_1.Model_handle {
             return oDates;
         });
     }
+    static makeUps(oDates, iKey, oKey, nAttrs, options = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const oKeySet = Array.from(new Set(oDates.map(t => t[oKey[1]])));
+            nAttrs = Array.from(new Set(nAttrs.concat([oKey[0]])));
+            const where = { [oKey[0]]: { [interface_1.Op.in]: oKeySet } };
+            Object.assign(where, oKey[2] || {});
+            const nDates = yield this.findAll(where, Object.assign({}, options, { attributes: nAttrs }));
+            const nObject = {};
+            for (let n of nDates) {
+                if (!nObject[n[oKey[0]]]) {
+                    nObject[n[oKey[0]]] = [];
+                }
+                nObject[n[oKey[0]]].push(n);
+            }
+            for (let o of oDates) {
+                o[iKey] = nObject[o[oKey[1]]] || [];
+            }
+            return oDates;
+        });
+    }
 }
 exports.Model_base = Model_base;
 //# sourceMappingURL=model_base.js.map

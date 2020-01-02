@@ -1,6 +1,6 @@
 {
   "name": "sequelize-ts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "pch18",
   "keywords": [],
   "main": "build/app.js",

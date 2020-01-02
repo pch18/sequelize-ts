@@ -60,36 +60,32 @@ export class Model_handle<T extends Model_handle<T>> extends Model_start<T> {
     /*
         以下为数据库 查询操作 (基本操作)
     */
-    static find<T, K extends keyof Model_origin<T>>(
-        this: (new () => T),
-        where: WhereMyOptionds<T>,
-        options: FindMyOptions<T> & { attributes: K[] }
-    ): Promise<Model_result<T, K> | null>
     static find<T>(
         this: (new () => T),
         where: WhereMyOptionds<T>,
         options?: FindMyOptions<T>
     ): Promise<Model_result<T> | null>
+    static find<T, K extends keyof Model_origin<T>>(
+        this: (new () => T),
+        where: WhereMyOptionds<T>,
+        options: FindMyOptions<T> & { attributes: K[] }
+    ): Promise<Model_result<T, K> | null>
     static async find(where: any, options: any = {}) {
         const result = await (<any>this.originModel).findOne(Object.assign({}, options, { where, raw: true }))
         return result && new this(result)
     }
 
-    static findAll<T, K extends keyof Model_origin<T>>(
-        this: (new () => T),
-        where: WhereMyOptionds<T>,
-        options: FindMyOptions<T> & { attributes: K[], group?: K }
-    ): Promise<Model_result<T, K>[]>
     static findAll<T>(
         this: (new () => T),
         where: WhereMyOptionds<T>,
         options?: FindMyOptions<T>
     ): Promise<Model_result<T>[]>
+    static findAll<T, K extends keyof Model_origin<T>>(
+        this: (new () => T),
+        where: WhereMyOptionds<T>,
+        options: FindMyOptions<T> & { attributes: K[] }
+    ): Promise<Model_result<T, K>[]>
     static async findAll(where: any, options: any) {
-        if (options && options.page) {
-            options.limit = options.limit || 20
-            options.offset = (options.page - 1) * options.limit
-        }
         const result = await (<any>this.originModel).findAll(Object.assign({}, options, { where, raw: true }))
         return result.map((r: any) => new this(r))
     }
