@@ -19,6 +19,8 @@ export class Model_start<T extends Model_start<T>> {
                     data[key] = data[key] && new myTime(data[key] as any) as any
                 } else if (type instanceof DataTypes.DATEONLY) {
                     data[key] = data[key] && new myDate(data[key] as any) as any
+                } else if (type.key == 'BOOLEAN') {
+                    data[key] = !!data[key] as any
                 } else if (type.key == 'JSON' && typeof data[key] == 'string') {
                     try {
                         data[key] = JSON.parse(data[key] as any) || null
