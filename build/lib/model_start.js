@@ -18,7 +18,7 @@ class Model_start {
                 else if (type instanceof sequelize_1.DataTypes.DATEONLY) {
                     data[key] = data[key] && new myDate_1.default(data[key]);
                 }
-                else if (type.key == 'BOOLEAN') {
+                else if (type.key == 'BOOLEAN' && data[key] !== null && data[key] !== undefined) {
                     data[key] = !!data[key];
                 }
                 else if (type.key == 'JSON' && typeof data[key] == 'string') {
